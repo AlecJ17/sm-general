@@ -31,6 +31,27 @@
   color: var(--black);
   text-transform: capitalize;
 }
+@mixin graphText($graphSize) {
+  font-size: $graphSize;
+  color: var(--light-color);
+  line-height: 1.5;
+}
+
+@mixin iconsBox() {
+  height: 5rem;
+  width: 5rem;
+  line-height: 5rem;
+  font-size: 2rem;
+  background: var(--light-bg);
+  color: var(--black);
+  cursor: pointer;
+  text-align: center;
+
+  &:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+}
 
 html {
   font-size: 62.5%;
@@ -62,4 +83,68 @@ html {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+
+  .logo {
+    @include titleText(2.5rem);
+    span {
+      color: var(--yellow);
+    }
+  }
+  .navbar a {
+    @include titleText(2.5rem);
+    margin: 0 1rem;
+    &:hover {
+      color: var(--yellow);
+    }
+  }
+
+  .icons div {
+    @include iconsBox();
+    margin-left: 0.3rem;
+  }
+  #menu-btn {
+    display: none;
+  }
+}
+
+// Media Queries
+@media (max-width: 1200px) {
+  .header {
+    padding: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+  .header {
+    #menu-btn {
+      display: inline-block;
+    }
+    .navbar {
+      position: absolute;
+      top: 99%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-top: var(--border);
+      border-bottom: var(--border);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      a {
+        display: block;
+        margin: 2rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  html {
+    font-size: 50%;
+  }
 }
