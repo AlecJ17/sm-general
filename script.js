@@ -14,4 +14,5 @@ document.querySelector("#close-contact-info").onclick = () => {
 
 window.onscroll = () => {
   navbar.classList.remove("active");
+  contactInfo.classList.remove("active");
 };
