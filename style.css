@@ -36,6 +36,10 @@ html::-webkit-scrollbar-thumb {
   background: var(--yellow);
 }
 
+section {
+  padding: 5rem 10%;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -47,6 +51,7 @@ html::-webkit-scrollbar-thumb {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+  background: var(--white);
 }
 .header .logo {
   font-size: 2.5rem;
@@ -139,7 +144,7 @@ html::-webkit-scrollbar-thumb {
 .contact-info .info p {
   font-size: 1.5rem;
   color: var(--light-color);
-  line-height: 1.5;
+  line-height: 2;
 }
 .contact-info .share {
   padding-top: 1rem;
@@ -162,14 +167,98 @@ html::-webkit-scrollbar-thumb {
   color: var(--white);
 }
 
+.home {
+  padding: 0;
+}
+.home .swiper-slide {
+  min-height: 60rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background-size: cover !important;
+  background-position: center !important;
+}
+.home .swiper-slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--white), transparent);
+}
+.home .swiper-slide .content {
+  width: 50rem;
+  position: relative;
+}
+.home .swiper-slide .content h3 {
+  font-size: 6rem;
+  color: var(--black);
+  text-transform: capitalize;
+  text-transform: uppercase;
+}
+.home .swiper-slide .content p {
+  font-size: 1.6rem;
+  color: var(--light-color);
+  line-height: 2;
+  padding: 1rem 0;
+}
+.home .swiper-slide .content .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2.5rem;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.home .swiper-slide .content .btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+.home .swiper-button-next,
+.home .swiper-button-prev {
+  top: initial;
+  bottom: 0;
+  left: initial;
+  right: 0;
+  height: 7rem;
+  width: 7rem;
+  line-height: 7rem;
+  font-size: 3rem;
+  color: var(--white);
+}
+.home .swiper-button-next:hover,
+.home .swiper-button-prev:hover {
+  background: var(--yellow);
+}
+.home .swiper-button-next::after,
+.home .swiper-button-prev::after {
+  font-size: 2rem;
+  color: var(--black);
+}
+.home .swiper-button-prev {
+  right: 7rem;
+}
+
 @media (max-width: 1200px) {
   .header {
     padding: 1.5rem 2rem;
+  }
+  section {
+    padding: 3rem 5%;
   }
 }
 @media (max-width: 991px) {
   html {
     font-size: 55%;
+  }
+  section {
+    padding: 3rem 2rem;
   }
   .header #menu-btn {
     display: inline-block;
@@ -190,6 +279,19 @@ html::-webkit-scrollbar-thumb {
   .header .navbar a {
     display: block;
     margin: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .home .swiper-slide .content {
+    width: 90%;
+    text-align: center;
+  }
+  .home .swiper-slide .content h3 {
+    font-size: 3rem;
+  }
+  .home .swiper-slide .content .btn {
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
   }
 }
 @media (max-width: 450px) {
