@@ -74,7 +74,12 @@ html {
 section {
   padding: 5rem 10%;
 }
-
+.heading {
+  margin-bottom: 3rem;
+  @include titleText(3rem);
+  padding-left: 1rem;
+  border-left: 1rem solid var(--yellow);
+}
 .header {
   position: sticky;
   top: 0;
@@ -239,6 +244,168 @@ section {
     right: 7rem;
   }
 }
+.about {
+  .row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    .video {
+      flex: 1 1 41rem;
+      video {
+        width: 100%;
+      }
+    }
+    .content {
+      flex: 1 1 41rem;
+      h3 {
+        @include titleText(3.5rem);
+      }
+      p {
+        @include graphText(1.5rem);
+        padding: 1rem 0;
+      }
+    }
+  }
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background: var(--yellow);
+    color: var(--black);
+    font-size: 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+    &:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+  }
+}
+.box-container {
+  margin-top: 3rem;
+  @include grid(25rem);
+  align-items: flex-end;
+  .box {
+    text-align: center;
+    background: var(--light-bg);
+    padding: 3rem 2rem;
+
+    h3 {
+      @include titleText(4rem);
+    }
+    p {
+      @include graphText(1.5rem);
+      padding-top: 0.5rem;
+    }
+  }
+}
+
+.services {
+  background: var(--light-bg);
+
+  .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 cards per row
+    gap: 2rem;
+
+    .box {
+      height: 100%;
+      min-height: 500px; // Adjust this height to suit your design
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      padding: 3rem;
+      background: var(--white);
+      box-shadow: var(--box-shadow);
+      border: var(--border);
+      transition: transform 0.3s ease;
+
+      &:hover img {
+        transform: translateY(-1rem);
+      }
+
+      img {
+        height: 7rem;
+        width: auto; // Prevent stretching
+        object-fit: contain;
+        margin-bottom: 0.5rem;
+      }
+
+      h3 {
+        @include titleText(1.7rem);
+        padding: 1rem 0;
+      }
+
+      p {
+        @include graphText(1.5rem);
+        padding-bottom: 1rem;
+        flex-grow: 1;
+      }
+    }
+  }
+}
+.projects {
+  background: var(--black);
+  .heading {
+    color: var(--white);
+  }
+  .box-container {
+    @include grid(30rem);
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    .box {
+      cursor: initial;
+
+      &:hover .image img {
+        transform: scale(1.1);
+      }
+
+      .image {
+        height: 40rem;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+      .content {
+        display: flex;
+
+        background: var(--white);
+        justify-content: space-between;
+
+        .info {
+          padding: 1rem 2rem;
+          h3 {
+            @include titleText(1.7rem);
+          }
+          p {
+            @include graphText(1.5rem);
+          }
+        }
+        i {
+          width: 7.5rem;
+          font-size: 3rem;
+          background: var(--yellow);
+          color: var(--white);
+          cursor: pointer;
+          text-align: center;
+          line-height: 7.5rem;
+        }
+      }
+    }
+  }
+}
+
 // Media Queries
 @media (max-width: 1200px) {
   .header {
@@ -246,6 +413,11 @@ section {
   }
   section {
     padding: 3rem 5%;
+  }
+}
+@media (max-width: 1024px) {
+  .services .box-container {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -295,8 +467,15 @@ section {
       }
     }
   }
+  .projects .box-container {
+    grid-template-columns: 1fr;
+  }
 }
-
+@media (max-width: 600px) {
+  .services .box-container {
+    grid-template-columns: 1fr;
+  }
+}
 @media (max-width: 450px) {
   html {
     font-size: 50%;
