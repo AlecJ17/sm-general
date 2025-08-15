@@ -424,6 +424,69 @@ section {
   line-height: 7.5rem;
 }
 
+.contact {
+  background: var(--black);
+  padding: 5rem 10%;
+}
+.contact .heading {
+  color: var(--white);
+  margin-bottom: 3rem;
+}
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.contact .row form {
+  flex: 1 1 45rem;
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--box-shadow);
+}
+.contact .row form h3 {
+  font-size: 2.5rem;
+  color: var(--black);
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+.contact .row form .box {
+  margin: 0.7rem 0;
+  width: 100%;
+  padding: 1.5rem;
+  border: var(--border);
+  font-size: 1.6rem;
+  color: var(--light-color);
+  border-radius: 0.3rem;
+  background: var(--light-bg);
+}
+.contact .row form .box:focus {
+  border-color: var(--yellow);
+  background: var(--white);
+}
+.contact .row form textarea {
+  height: 15rem;
+  resize: none;
+}
+.contact .row form .btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2.5rem;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+.contact .row form .btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
 @media (max-width: 1200px) {
   .header {
     padding: 1.5rem 2rem;
@@ -479,6 +542,16 @@ section {
   }
   .projects .box-container {
     grid-template-columns: 1fr;
+  }
+  .contact {
+    padding: 3rem 5%;
+  }
+  .contact .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact .row form {
+    width: 100%;
   }
 }
 @media (max-width: 600px) {

@@ -115,6 +115,7 @@ section {
     display: none;
   }
 }
+
 .contact-info {
   position: fixed;
   top: 0;
@@ -406,6 +407,77 @@ section {
   }
 }
 
+.contact {
+  background: var(--black);
+  padding: 5rem 10%;
+
+  .heading {
+    color: var(--white);
+
+    margin-bottom: 3rem;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+
+    form {
+      flex: 1 1 45rem;
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 0.5rem;
+      box-shadow: var(--box-shadow);
+
+      h3 {
+        @include titleText(2.5rem);
+        margin-bottom: 1.5rem;
+      }
+
+      .box {
+        margin: 0.7rem 0;
+        width: 100%;
+        padding: 1.5rem;
+        border: var(--border);
+        font-size: 1.6rem;
+        color: var(--light-color);
+        border-radius: 0.3rem;
+        background: var(--light-bg);
+
+        &:focus {
+          border-color: var(--yellow);
+          background: var(--white);
+        }
+      }
+
+      textarea {
+        height: 15rem;
+        resize: none;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 1rem 2.5rem;
+        background: var(--yellow);
+        color: var(--black);
+        font-size: 1.6rem;
+        border-radius: 0.5rem;
+        font-weight: 500;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.3s;
+
+        &:hover {
+          background: var(--black);
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
+
 // Media Queries
 @media (max-width: 1200px) {
   .header {
@@ -469,6 +541,18 @@ section {
   }
   .projects .box-container {
     grid-template-columns: 1fr;
+  }
+  .contact {
+    padding: 3rem 5%;
+
+    .row {
+      flex-direction: column;
+      align-items: stretch;
+
+      form {
+        width: 100%;
+      }
+    }
   }
 }
 @media (max-width: 600px) {
