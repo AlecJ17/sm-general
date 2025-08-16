@@ -354,23 +354,38 @@
         </a>
       </div>
     </section>
-    <!-- Contact section -->
+    <!-- Contact Section -->
     <section class="contact" id="contact">
       <h1 class="heading">Contact Us</h1>
       <div class="row">
-        <form action="">
+        <form class="contact-form">
           <h3>Get in Touch</h3>
-          <input type="text" placeholder="Name" class="box" />
-          <input type="email" placeholder="Email" class="box" />
-          <input type="number" placeholder="Phone" class="box" />
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            class="box"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="box"
+            required
+          />
+          <input type="tel" name="phone" placeholder="Phone" class="box" />
           <textarea
+            name="message"
             placeholder="Your Message"
             class="box"
-            id=""
             cols="30"
             rows="10"
+            required
           ></textarea>
           <input type="submit" class="btn" value="Send Message" />
+          <p class="form-message"></p>
+          <!-- this will show success/error messages -->
         </form>
       </div>
     </section>

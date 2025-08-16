@@ -46,3 +46,38 @@ var swiper = new Swiper(".home-slider", {
 //     },
 //   },
 // });
+
+const contactForm = document.querySelector(".contact-form");
+const formMessage = document.querySelector(".form-message");
+
+contactForm.addEventListener("submit", function (e) {
+  e.preventDefault(); // prevent default form submission
+
+  fetch("https://formspree.io/f/mldlvygo", {
+    method: "POST",
+    body: new FormData(contactForm),
+    headers: { Accept: "application/json" },
+  })
+    .then((response) => {
+      if (response.ok) {
+        formMessage.textContent = "✅ Thank you! Your message has been sent.";
+        formMessage.style.color = "green";
+        contactForm.reset();
+
+        // Fade out message after 5 seconds
+        setTimeout(() => {
+          formMessage.textContent = "";
+        }, 5000);
+      } else {
+        formMessage.textContent =
+          "⚠️ Oops! There was a problem submitting your form.";
+        formMessage.style.color = "red";
+      }
+    })
+    .catch((error) => {
+      formMessage.textContent =
+        "⚠️ Oops! There was a problem submitting your form.";
+      formMessage.style.color = "red";
+      console.error(error);
+    });
+});
