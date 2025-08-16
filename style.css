@@ -383,6 +383,9 @@ section {
 }
 .projects .box-container .box {
   cursor: initial;
+  display: flex;
+  flex-direction: column;
+  height: 55rem;
 }
 .projects .box-container .box:hover .image img {
   transform: scale(1.1);
@@ -398,8 +401,10 @@ section {
 }
 .projects .box-container .box .content {
   display: flex;
-  background: var(--white);
   justify-content: space-between;
+  align-items: flex-end;
+  background: var(--white);
+  flex-grow: 1;
 }
 .projects .box-container .box .content .info {
   padding: 1rem 2rem;
@@ -408,6 +413,9 @@ section {
   font-size: 1.7rem;
   color: var(--black);
   text-transform: capitalize;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .projects .box-container .box .content .info p {
   font-size: 1.5rem;

@@ -24,6 +24,10 @@ var swiper = new Swiper(".home-slider", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  autoplay: {
+    delay: 3000, // time in milliseconds (3 seconds)
+    disableOnInteraction: false, // keep autoplay after user interaction
+  },
 });
 
 // var swiper = new Swiper(".blogs-slider", {
